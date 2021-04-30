@@ -24,7 +24,7 @@ function checksCreateTodosUserAvailability(request, response, next) {
   const { user } = request;
 
   const todoIndex = user.todos.length;
-  if (todoIndex > 9 && user.pro === false) {
+  if (todoIndex > 9 && !user.pro) {
     return response.status(404).json({ error: 'acima de 10' });
   }
 
